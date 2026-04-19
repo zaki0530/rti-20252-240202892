@@ -61,25 +61,25 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : ____________________
-Tanggal          : ____________________
+Nama Peneliti    : Abu Zaki
+Tanggal          : 19 April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: ____________________
-   - Data yang dibutuhkan untuk verifikasi: ____________________
+   - Pertanyaan pertama saya: "Berapa jumlah total sampel yang digunakan dan apakah kondisi pengujiannya mencerminkan realitas di lapangan?"
+   - Data yang dibutuhkan untuk verifikasi: Metrik performa mentah, distribusi demografi responden, dan detail lingkungan eksperimen (misal: spesifikasi perangkat/jaringan).
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: ____________________
+   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [X] Design Science  [ ] Mixed
+   - Alasan: Fokus riset saya adalah menciptakan solusi praktis berupa artefak (prototipe aplikasi SRUPUT) untuk memecahkan masalah antrean di kedai kopi.
 
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: ____________________
-   - Sumber bias potensial: ____________________
-   - Langkah mitigasi: ____________________
+   - Asumsi tersembunyi: Mengasumsikan bahwa pengguna yang mahir teknologi (mahasiswa) mewakili seluruh spektrum calon pengguna aplikasi.
+   - Sumber bias potensial: Sampling bias karena pemilihan responden yang terbatas dan Social Desirability Bias (responden cenderung memberi nilai bagus karena mengenal peneliti).
+   - Langkah mitigasi: Melakukan pengujian kepada kelompok usia yang lebih luas dan menggunakan teknik "blind testing" di mana responden tidak tahu siapa pembuat aplikasinya.
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: ____________________
-   - Batasan yang diakui sejak awal: ____________________
+   - Data yang tidak akan dimanipulasi: Skor asli dari kuesioner System Usability Scale (SUS) dan feedback negatif dari pengguna saat tahap testing.
+   - Batasan yang diakui sejak awal: Keterbatasan jumlah responden (hanya 10 orang) dan fokus penelitian yang hanya mencakup wilayah geografis tertentu (Kebumen).
 ```
 
 ---
@@ -93,23 +93,23 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: _______________________________________________
-> Penulis (Tahun): ______________________________________
-> Sumber/Link DOI: _____________________________________
+> Judul:Penerapan UI/UX Menggunakan Metode Design Thinking Pada Aplikasi Coffee Shop Sruput Berbasis Mobile
+> Penulis (Tahun):Muhammad Hafidh Hilmi Al Fikri, dkk. (2025)
+> Sumber/Link DOI:https://ejournal.itn.ac.id/jati/article/view/13644/7723
 
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | Melakukan observasi dan wawancara kepada pelanggan di kedai kopi wilayah Kebumen untuk mengumpulkan keluhan antrean manual | Sampling Bias: Responden mungkin didominasi oleh kalangan mahasiswa/rekan peneliti, sehingga belum tentu mewakili pelanggan dari kelompok usia lebih tua |
+| Data → Processing |Menyusun Empathy Map, User Persona, dan Customer Journey Map dari hasil wawancara |Interpretation Bias: Peneliti mungkin menyederhanakan profil pengguna (Persona) agar sesuai dengan solusi fitur yang sudah direncanakan sebelumnya |
+| Processing → Analysis |Membuat prototipe di Figma dan mengujinya menggunakan kuesioner System Usability Scale (SUS) kepada 10 responden |Social Desirability Bias: Responden mungkin memberikan skor tinggi karena merasa sungkan terhadap peneliti, bukan murni karena fungsionalitas aplikasi |
+| Analysis → Inference |Menghitung rata-rata skor SUS sebesar 80,25 dan menyimpulkan kategori "Excellent" |Construct Validity: Skor SUS pada prototipe statis mungkin tidak mencerminkan pengalaman nyata jika aplikasi sudah memiliki kendala teknis seperti lag jaringan |
+| Inference → Knowledge |Menyarankan penggunaan metode Design Thinking sebagai solusi efektif untuk pengembangan aplikasi retail kopi |Overgeneralization: Keberhasilan pada satu studi kasus di Kebumen dianggap berlaku secara universal untuk semua skala bisnis kopi |
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Reality → Data
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
+1. Jumlah Responden Terbatas: Pengujian hanya dilakukan pada 10 orang, yang secara statistik mungkin belum cukup kuat untuk menggeneralisasi kepuasan seluruh pengguna aplikasi
+2. Konteks Lokal: Penelitian terfokus pada pengguna di Kebumen, sehingga pola perilaku pemesanan mungkin berbeda jika diterapkan di kota besar dengan budaya kopi yang berbeda
 
 ---
 
@@ -119,29 +119,29 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | Menghapus outlier hanya agar hasil terlihat signifikan adalah bentuk manipulasi data yang melanggar integritas akademik |
+| Transparansi |Peneliti wajib melaporkan semua data, termasuk anomali, karena outlier bisa jadi memberikan wawasan penting tentang kegagalan sistem |
+| Peer review |Jika data dimanipulasi, peneliti lain tidak akan bisa mereproduksi (reproducible) hasil yang sama, sehingga kepercayaan terhadap riset tersebut hilang |
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
+> Peneliti harus tetap melaporkan hasil dengan menyertakan outlier tersebut. Justifikasi: Kegagalan atau anomali data tetap merupakan kontribusi pengetahuan (negative result) yang valid dalam riset IT
 
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** ________________________________________
+**Topik riset:** Pengembangan UI/UX Aplikasi Mobile menggunakan Design Thinkin
 
 > **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4 — topik kuantitatif, cocok uji hipotesis* | *Contoh: 2 — topik tidak studi makna/konteks* | *Contoh: 5 — membangun artefak untuk uji klaim* |
-| Jenis data yang dikumpulkan | *Metrik numerik, log eksperimen* | *Wawancara, observasi kualitatif* | *Hasil uji artefak, komparasi kinerja* |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) | 4 — Karena riset ini menggunakan pengujian objektif melalui skor SUS (System Usability Scale) untuk mengukur tingkat keberhasilan desain secara numerik | 2 — Meskipun ada tahap wawancara, fokus utama riset bukan untuk mendalami makna sosial yang mendalam, melainkan hanya sebagai masukan desain | 5 — Karena tujuan utama riset adalah membangun sebuah artefak (prototipe desain aplikasi) yang bertujuan memecahkan masalah praktis yaitu antrean di kedai kopi |
+| Jenis data yang dikumpulkan | Skor kuesioner SUS (numerik) dan tingkat keberhasilan tugas | Catatan wawancara mendalam mengenai perasaan pengguna | Hasil pengujian artefak berupa prototipe aplikasi di Figma. |
+| Limitasi paradigma |Angka tidak selalu menjelaskan mengapa pengguna merasa bingung |Hasil sulit digeneralisasi karena sangat bergantung pada konteks individu |Fokus pada "apakah sistem bekerja", bukan pada teori dasar yang mendalam |
 
-**Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
+**Paradigma yang dipilih:** Design Science Research (DSR)
+**Alasan:** Riset ini berfokus pada pembangunan sebuah artefak (prototipe aplikasi SRUPUT) untuk memecahkan masalah praktis (antrean kopi) dan menguji efektivitas artefak tersebut melalui pengujian langsung
 
 ---
 
@@ -150,5 +150,4 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+>Dulu saya langsung percaya pada angka seperti "SUS 84,25". Sekarang, saya akan mempertanyakan: Siapa respondennya? Apakah alat ukurnya valid? Dan apakah hasilnya bisa diterapkan di tempat lain? Saya belajar bahwa data bagus di atas kertas belum tentu sukses di lapangan jika prosesnya bias.
