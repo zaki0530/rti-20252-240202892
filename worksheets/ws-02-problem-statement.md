@@ -106,14 +106,14 @@ Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Pro
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | *Pelanggan di kedai kopi sering mengalami penumpukan antrean manual di meja kasir* |
+| Observed Issue (Symptom) | *Waktu tunggu dari datang hingga pesanan diproses rata-rata >10 menit; tingkat pembatalan pesanan saat antrean panjang mencapai 15%* |
+| Diagnosed Problem (Root Cause) |Kurangnya media pemesanan mandiri (self-order) yang efisien dan UI/UX aplikasi yang ada (jika ada) terlalu rumit bagi pengguna baru |
+| Researchable Problem |Bagaimana merancang antarmuka aplikasi pemesanan yang mampu meminimalkan cognitive load pengguna sehingga proses pemesanan selesai dalam <2 menit? |
+| Measurable Variable |Skor SUS,waktu menyelesaikan pesanan, dan Success Rate (persentase pesanan berhasil tanpa bantuan). |
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
-> Jika ya, kembali ke tahap mana? ________________________
+**Apakah terjebak solution-first thinking?** [ ] Ya / [x] Tidak
+> Jika ya, kembali ke tahap mana? _Kita fokus pada masalah antrean dan beban kognitif, bukan sekadar "ingin buat aplikasi_______________________
 
 ---
 
@@ -123,14 +123,14 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | *Kita fokus pada masalah antrean dan beban kognitif, bukan sekadar "ingin buat aplikasi* |
+| Process |Alur Design Thinking, navigasi menu, pemrosesan pesanan, dan validasi pembayaran. |
+| Output |Prototipe high-fidelity (Figma), invoice digital, dan notifikasi status pesanan |
+| Outcome |Berkurangnya kepadatan antrean fisik di kedai dan peningkatan kenyamanan transaksi pelanggan |
+| Constraints |Keterbatasan ukuran layar smartphone, variasi kemampuan literasi digital pengguna di Kebumen. |
+| Stakeholders | Pemilik Kedai , Barista (sebagai penerima pesanan), dan Pelanggan (User)|
 
-**Komponen mana yang paling relevan dengan masalah riset?** _______________
+**Komponen mana yang paling relevan dengan masalah riset?** Proses navigasi dalam aplikasi yang harus tetap mudah di bawah batasan layar kecil dan user yang beragam
 
 ---
 
@@ -140,17 +140,16 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | *5 — Fokus pada hambatan antrean & solusi UI/UX sangat spesifi* | |
+| Measurability |4|Terukur lewat skor SUS (target >68) dan task completion time |
+| Relevance |5|Solusi digital sangat dibutuhkan untuk efisiensi UMKM retail. |
+| Testability |5|Bisa dibuktikan melalui pengujian langsung ke calon pengguna |
+| Impact |4|Berpotensi meningkatkan omzet kedai melalui layanan yang cepat |
 
-**Skor total:** _____ / 25
+**Skor total:** 23/ 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
-> ___________________________________________________
+>Penumpukan antrean manual di Kedai menghambat efisiensi pelayanan. Penelitian ini bertujuan merancang UI/UX aplikasi mobile menggunakan metode Design Thinking untuk menciptakan alur pemesanan mandiri yang cepat dan mudah digunakan, yang divalidasi menggunakan metrik System Usability Scale (SUS)
 
 ---
 
@@ -159,5 +158,5 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Fokus pada perbaikan fungsional agar sistem
+> Fokus pada pembuktian efektivitas dan pencarian pengetahuan baru melalui data
