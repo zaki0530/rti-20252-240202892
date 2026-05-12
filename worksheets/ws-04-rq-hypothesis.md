@@ -103,24 +103,24 @@ Hypothesis Pair:
 
 Gunakan gap yang ditemukan di WS-03. Transformasikan menjadi Research Question.
 
-**Gap dari WS-03:** ____________________________________
+**Gap dari WS-03:**Rancangan UI/UX pada tahap Cart & Payment belum dioptimalkan untuk mengurangi waktu pemesanan (time on task) secara signifikan di kedai kopi skala UMKM
 
 **RQ versi pertama (tulis bebas):**
-> ___________________________________________________
+>Apakah desain aplikasi SRUPUT bisa bikin pesanan kopi lebih cepat selesai dibanding aplikasi yang sudah ada?
 
 **Evaluasi RQ:**
 
 | Komponen | Ada? | Isi |
 |----------|------|-----|
-| Metode spesifik | *Contoh: Ya — CNN vs RF* | |
-| Metrik terukur | | |
-| Baseline | | |
-| Dataset/konteks | | |
+| Metode spesifik | Ya  |Rancangan UI/UX berbasis Design Thinking |
+| Metrik terukur |Ya |Time on task (waktu penyelesaian) dan Skor SUS |
+| Baseline |Ya |Aplikasi Kopi Reman |
+| Dataset/konteks |Ya |Pelanggan di Kedai SRUPUT |
 
-**Tipe RQ:** [ ] Comparison / [ ] Improvement / [ ] Exploratory
+**Tipe RQ:** [x] Comparison / [ ] Improvement / [ ] Exploratory
 
 **RQ versi revisi (setelah evaluasi):**
-> ___________________________________________________
+> Apakah prototipe UI/UX aplikasi SRUPUT yang dirancang dengan metode Design Thinking menghasilkan time on task yang lebih cepat dan skor SUS yang lebih tinggi dibandingkan dengan aplikasi baseline Kopi Reman pada skenario pemesanan mandiri?
 
 ---
 
@@ -130,14 +130,14 @@ Rumuskan pasangan hipotesis dari RQ di Latihan 1.
 
 | Komponen | Isi |
 |----------|-----|
-| H₀ | *Contoh: Tidak ada perbedaan signifikan F1-Score antara CNN dan RF pada dataset CIC-MalMem-2022* |
-| H₁ | |
-| Metrik | |
-| Threshold | |
-| Justifikasi threshold | |
+| H₀ | Tidak ada perbedaan signifikan pada time on task dan skor SUS antara prototipe SRUPUT dengan aplikasi Kopi Reman |
+| H₁ |Prototipe SRUPUT menghasilkan time on task yang lebih singkat dan skor SUS yang lebih tinggi dibandingkan aplikasi Kopi Reman |
+| Metrik |Durasi waktu penyelesaian pesanan (detik) dan Nilai SUS (0-100) |
+| Threshold |Penurunan rata-rata waktu minimal 20% dan skor SUS minimal 68 |
+| Justifikasi threshold |Skor 68 adalah rata-rata standar global untuk usability, dan penghematan waktu 20% sudah cukup signifikan untuk mengurai antrean fisik. |
 
-**Apakah hipotesis ini falsifiable?** [ ] Ya / [ ] Tidak
-> Bagaimana cara membuktikannya salah? ___________________
+**Apakah hipotesis ini falsifiable?** [x] Ya / [ ] Tidak
+> Bagaimana cara membuktikannya salah?H₀ terbukti benar (H₁ salah) jika saat diuji ke responden, waktu pakai SRUPUT ternyata sama lamanya atau skor SUS-nya malah lebih rendah dari Kopi Reman
 
 ---
 
@@ -147,14 +147,14 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 | Tahap | Isi |
 |-------|-----|
-| RQ | *Contoh: Apakah CNN menghasilkan F1-Score lebih tinggi dari RF...* |
-| Variable (IV) | *Contoh: Jenis algoritma (CNN vs RF)* |
-| Variable (DV) | |
-| Metric | |
-| Data source | |
-| Analysis method | |
+| RQ | Apakah prototipe UI/UX aplikasi SRUPUT menghasilkan F1-Score/Waktu lebih baik|
+| Variable (IV) | Jenis rancangan antarmuka (Prototipe SRUPUT vs Aplikasi Kopi Reman) |
+| Variable (DV) |Tingkat efisiensi pemesanan dan kepuasan pengguna. |
+| Metric |Time on task (dalam detik) dan Skor instrumen SUS. |
+| Data source |Pengujian langsung (task scenario) dan kuesioner dari calon pengguna kedai. |
+| Analysis method |Perbandingan nilai rata-rata (Mean) skor SUS dan durasi waktu. |
 
-**Apakah rantai lengkap?** [ ] Ya / [ ] Tidak
+**Apakah rantai lengkap?** [x] Ya / [ ] Tidak
 > Jika tidak, tahap mana yang perlu direvisi? ______________
 
 ---
@@ -163,6 +163,6 @@ Lengkapi rantai dari RQ hingga metode analisis.
 
 > Ambil satu judul skripsi/paper yang pernah dibaca. Coba ekstrak RQ-nya. Apakah RQ tersebut memenuhi semua komponen (metode, metrik, baseline, konteks)? Jika tidak, apa yang hilang?
 
-**Judul:** _____________________________________________
-**RQ yang diekstrak:** __________________________________
-**Komponen yang hilang:** _______________________________
+**Judul:**Penerapan UI/UX Menggunakan Metode Design Thinking Pada Aplikasi Kopi Reman Berbasis Mobile (Al Fikri dkk., 2024)
+**RQ yang diekstrak:**Bagaimana merancang UI/UX aplikasi pemesanan kopi menggunakan metode Design Thinking?
+**Komponen yang hilang:** RQ di paper tersebut tidak memiliki baseline (pembanding) dan tidak menyebutkan metrik terukur secara eksplisit di dalam pertanyaannya (hanya fokus ingin membuat aplikasinya saja)
