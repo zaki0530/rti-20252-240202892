@@ -106,13 +106,13 @@ Statistical Plan:
 
 Susun desain eksperimen berdasarkan RQ, variabel, dan sistem dari WS-04 sampai WS-06.
 
-**RQ:** __________________________________________________
+**RQ:**Apakah prototipe UI/UX aplikasi SRUPUT menghasilkan time on task yang lebih cepat dan skor SUS yang lebih tinggi dibandingkan dengan aplikasi baseline Kopi Reman pada skenario pemesanan mandiri
 **Tipe eksperimen:** [ ] Comparison / [ ] Ablation / [ ] Parameter
 
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control | *Contoh: RF baseline dari literatur* | *RF* | *Dataset X, 80:20 split, seed 42* |
-| Treatment | | | |
+| Control | Aplikasi baseline dari literatur sebelumnya |Antarmuka Aplikasi Kopi Reman | Skenario tugas "Pesan 2 kopi", smartphone sama, koneksi internet sama|
+| Treatment |Prototipe baru yang dirancang menggunakan Design Thinking |Antarmuka Prototipe SRUPUT |Skenario tugas, smartphone, dan koneksi internet persis sama |
 
 ---
 
@@ -122,13 +122,13 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| Dataset identik | *Contoh: ✅ — sama-sama pakai CIC-MalMem-2022* | |
-| Preprocessing setara | | |
-| Tuning effort setara | | |
-| Environment identik | | |
-| Metrik evaluasi sama | | |
+| Dataset identik |✅|Responden (calon pelanggan) dan skenario tugas pemesanan yang diberikan sama persis |
+| Preprocessing setara |✅|Arahan/instruksi sebelum tes (briefing) diberikan dengan durasi dan penjelasan yang sama untuk kedua aplikasi. |
+| Tuning effort setara |✅|Tingkat resolusi (fidelity) prototipe SRUPUT di Figma dibuat setara dengan kualitas visual aplikasi Kopi Reman, bukan membandingkan desain matang dengan sketsa kertas |
+| Environment identik |✅|Pengujian dilakukan menggunakan tipe smartphone dan koneksi Wi-Fi yang sama. |
+| Metrik evaluasi sama |✅|Keduanya diukur menggunakan Stopwatch (detik) dan Google Form (Kuesioner SUS). |
 
-**Ada yang tidak fair?** [ ] Ya / [ ] Tidak
+**Ada yang tidak fair?** [ ] Ya / [x] Tidak
 > Jika ya, bagaimana cara memperbaikinya? ________________
 
 ---
@@ -139,15 +139,14 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal | *Contoh: Data leakage antara train-test* | *Contoh: Gunakan stratified split, validasi tidak ada overlap* |
-| External | | |
-| Construct | | |
-| Conclusion | | |
+| Internal | Learning effect: Jika responden mencoba Kopi Reman lalu SRUPUT, mereka mungkin lebih cepat di SRUPUT karena sudah hafal tugasnya, bukan karena desainnya | terapkan Counterbalancing: Pisahkan responden. Setengah mencoba Kopi Reman dulu, setengahnya lagi mencoba SRUPUT dulu |
+| External |Pengujian hanya dilakukan pada teman sesama mahasiswa IT |Mencari responden secara acak dari berbagai kalangan usia yang sedang nongkrong di kedai |
+| Construct |Penghitungan waktu time on task meleset akibat delay saat menekan stopwatch. |Gunakan aplikasi Screen Recording selama pengujian agar waktu bisa dihitung akurat dari tayangan ulang. |
+| Conclusion |Jumlah responden terlalu sedikit (misal cuma 3 orang) sehingga kesimpulan statistik tidak kuat (power rendah). |Targetkan minimal 20-30 responden untuk mendapatkan hasil uji statistik (seperti T-Test) yang meyakinkan. |
 
-**Ancaman mana yang paling sulit dimitigasi?** _____________
+**Ancaman mana yang paling sulit dimitigasi?** External Validity
 **Mengapa?**
-> ___________________________________________________
-
+>Mengajak pelanggan umum (bukan teman sendiri) untuk meluangkan waktu 10-15 menit mencoba prototipe dan mengisi kuesioner di tempat nyata cukup menantang. Mungkin perlu mitigasi tambahan berupa pemberian insentif/diskon minuman bagi responden yang bersedia
 ---
 
 ## Refleksi
@@ -155,6 +154,6 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 > Sebuah paper melaporkan "metode kami mengalahkan semua baseline." Apa 3 pertanyaan pertama yang harus diajukan untuk mengevaluasi klaim ini?
 
 **Jawaban:**
-1. ___________________________________________________
-2. ___________________________________________________
-3. ___________________________________________________
+1. Apakah sistem rancangan baru dan baseline benar-benar diuji dalam kondisi, alat, dan skenario yang persis sama
+2. Apakah perbedaan performanya signifikan secara pengujian statistik, atau sekadar beda sedikit karena kebetulan
+3. Apakah metrik yang dipakai mengukur hal yang benar (construct validity), bukan sekadar metrik yang sengaja dipilih untuk memenangkan sistem milik penulis
