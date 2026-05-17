@@ -87,15 +87,16 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
+**RQ:**Apakah prototipe UI/UX aplikasi SRUPUT menghasilkan time on task yang lebih cepat dan skor SUS yang lebih tinggi dibandingkan dengan aplikasi baseline Kopi Reman pada skenario pemesanan mandiri?
 
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+|Jenis Aplikasi | *IV* | *Pendekatan klasifikasi* | Prototipe SRUPUT vs Aplikasi Kopi Reman | Nominal | — |
+|Waktu Selesai | DV |Efisiensi sistem |Waktu dari buka aplikasi sampai pembayaran berhasil |Ratio |Detik |
+|Tugas | CV |Kompleksitas pesana |Menyamakan instruksi |Nominal |—|
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
+|Nilai Usability||DV||Kepuasan & kemudahan||Skor akhir instrumen System Usability Scale||Interval||Poin (0-100)|
+**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [x] Tidak
 > Jika ya, di mana? ____________________________________
 
 ---
@@ -106,16 +107,14 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| Representative |5	|Waktu yang dihitung dalam detik sangat akurat mewakili tingkat "efisiensi kecepatan" pemesanan untuk mengurangi antrean. |
+| Sensitive |5|Sangat peka menangkap perbedaan waktu, meskipun SRUPUT dan Kopi Reman hanya selisih 3 detik saja |
+| Feasible |5|Sangat praktis untuk dikumpulkan, cukup menggunakan perangkat stopwatch di smartphone saat responden melakukan testing |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
-
+**Apakah perlu secondary metric?** [x] Ya / [ ] Tidak
+> Jika ya, apa dan mengapa? Persentase keberhasilan.Karena percuma waktu pengerjaannya sangat cepat (time on task rendah) jika ternyata pesanannya keliru atau responden gagal mencapai halaman pembayaran.
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
-
+>Jika skenario tugas (CV) yang diberikan terlalu gampang (misalnya pengguna hanya diminta menekan 1 tombol "Pesan Ulang"), maka baik di aplikasi SRUPUT maupun Kopi Reman akan mendapatkan waktu 1 detik. Akibatnya, metrik ini mentok pada nilai tertinggi dan gagal membuktikan aplikasi mana yang sebenarnya memiliki desain UI yang lebih baik.
 ---
 
 ## Latihan 3 — Data Quality Check
@@ -124,10 +123,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| Completeness | Apakah semua data point kuesioner terkumpul|Rentan ada responden yang lupa menjawab 1-2 poin pertanyaan SUS. |Menggunakan Google Form dan mengaktifkan fitur "Required" pada setiap butir soal SUS |
+| Consistency | Apakah ada kontradiksi internal |Waktu mulai dan berhenti stopwatch mungkin beda-beda tiap responden |Membuat SOP baku (Contoh: Stopwatch ditekan tepat saat jari menyentuh layar pertama, dan distop saat muncul tulisan Invoice) |
+| Validity | Apakah benar-benar mengukur yang dimaksud |Responden salah fokus mengkritik kecepatan internet, bukan desain UI-nya |Melakukan pengujian menggunakan Wi-Fi yang sama untuk semua responden agar faktor sinyal internet terkontrol |
+| Representativeness | Apakah sampel mewakili populasi target |Responden hanya diisi oleh teman mahasiswa yang jago main HP. |Merekrut responden langsung dari pembeli di Kedai SRUPUT, mencakup berbagai rentang usia. |
 
 ---
 
@@ -136,5 +135,6 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Karena memilih metrik setelah melihat data (p-hacking) dianggap sebagai kecurangan karena peneliti bisa sengaja memilih metrik yang hanya menguntungkan atau memuluskan hasil risetnya saja.
+
+> Bedanya dengan eksplorasi yang sah adalah, dalam eksplorasi metrik utama sudah dikunci sejak awal (pre-registration). Jika di tengah jalan ditemukan pola data lain yang menarik, hal itu hanya dilaporkan sebagai temuan tambahan (secondary/exploratory metric) tanpa membuang atau memanipulasi metrik utama

@@ -107,15 +107,15 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah prototipe UI/UX aplikasi SRUPUT menghasilkan time on task yang lebih cepat dan skor SUS yang lebih tinggi dibandingkan dengan aplikasi baseline Kopi Reman pada skenario pemesanan mandiri
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+|Desain Antarmuka | IV | Prototipe UI Cart & Payment di Figma | Mengganti tautan (link) prototipe yang diuji (SRUPUT vs Kopi Reman). |
+|Waktu & Usability | DV |Alat ukur eksternal |Perekaman durasi penyelesaian tugas dan pengumpulan skor kuesioner SUS |
+|Skenario Tugas | CV |Dokumen instruksi Task Scenario |Responden diberikan lembar instruksi tugas pemesanan yang sama persis |
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
+**Apakah semua variabel bisa di-map?** [x] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? _________
 
 ---
@@ -126,10 +126,10 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability | ✅|Halaman Cart & Payment (IV) langsung terhubung dengan data perekaman waktu (DV) |
+| Modularity |✅ |Desain prototipe bisa diuji secara mandiri tanpa harus membangun fungsi backend aplikasinya secara penuh |
+| Controllability |✅ |Perangkat smartphone pengujian dan kualitas koneksi internet diseragamkan untuk semua responden. |
+| Measurability |✅ |Durasi terekam via layar, dan skor SUS otomatis dikalkulasi melalui Google Form. |
 
 **Prinsip mana yang paling sulit dipenuhi?** _______________
 **Strategi untuk mengatasinya:**
@@ -146,15 +146,14 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full |✅|✅|✅| Time on task paling cepat|
+| – A | ❌ (manual upload) | ✅ | ✅ |Waktu penyelesaian tugas membengkak drastis |
+| – B | ✅ | ❌ (Harus kembali ke menu menu awal) | ✅ |Waktu sedikit bertambah jika ada salah tekan |
+| – C | ✅ | ✅ | ❌ (tanpa indikator) |Kecepatan sama, namun user mungkin sedikit bingung posisiny |
 
 **Komponen mana yang diprediksi paling berkontribusi?** _____
 **Mengapa?**
-> ___________________________________________________
-
+> Karena proses validasi pembayaran manual (seperti menyalin nomor rekening dan mengunggah bukti transfer) adalah titik penyumbat (bottleneck) utama yang paling banyak memakan waktu dan menimbulkan cognitive load pada pengguna saat mengantre.
 ---
 
 ## Refleksi
@@ -162,5 +161,4 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Risikonya adalah kita tidak akan tahu persis fitur mana yang sebenarnya meningkatkan efisiensi atau menyebabkan pengguna kebingungan. Jika langsung menguji aplikasi utuh, saat time on task-nya lambat, kita akan kesulitan mendiagnosis sumber masalahnya. Arsitektur modular (seperti menguji komponen Cart dan Payment secara spesifik) penting karena memungkinkan isolasi variabel; kita bisa membuktikan fitur mana yang benar-benar memengaruhi performa (traceability) tanpa gangguan fitur tambahan yang tidak relevan dengan pertanyaan riset (noise)
