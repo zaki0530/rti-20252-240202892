@@ -109,13 +109,13 @@ Kumpulkan hasil dari WS-02 sampai WS-07 menjadi satu ringkasan proposal.
 
 | Komponen | Sumber | Isi (1-2 kalimat) |
 |----------|--------|-------------------|
-| Problem Statement | WS-02 | *Contoh: Sistem rekomendasi memiliki akurasi tinggi (RMSE 0.87) tetapi satisfaction score rendah (45/100). Gap antara metrik teknis dan kepuasan pengguna belum diteliti.* |
-| Gap | WS-03 | *Contoh: Tidak ada studi yang mengintegrasikan collaborative filtering dengan user-context signals untuk meningkatkan satisfaction.* |
-| RQ | WS-04 | *Contoh: Apakah penambahan context-aware signals pada collaborative filtering meningkatkan satisfaction score tanpa menurunkan RMSE?* |
-| Hipotesis | WS-04 | *Contoh: H₁: Sistem CF+context menghasilkan satisfaction ≥ 70/100 dengan RMSE ≤ 0.90 dibanding baseline CF murni.* |
-| Variabel & Metrik | WS-05 | *Contoh: IV = jenis sistem (CF vs CF+context); DV = satisfaction score (skala 0-100) + RMSE (regresi).* |
-| Sistem | WS-06 | |
-| Desain Eksperimen | WS-07 | |
+| Problem Statement | WS-02 | Antrean manual di Kedai Kopi SRUPUT panjang dan lama pada jam sibuk. |
+| Gap | WS-03 | Belum ada optimalisasi UI/UX khusus pada alur Cart & Payment untuk memangkas waktu pemesanan mandiri di UMKM daerah. |
+| RQ | WS-04 | RQ: Apakah prototipe SRUPUT menghasilkan time on task lebih cepat dan skor SUS lebih tinggi dibanding Kopi Reman? |
+| Hipotesis | WS-04 | H₁: Prototipe SRUPUT menghasilkan waktu lebih cepat dan skor SUS lebih tinggi. |
+| Variabel & Metrik | WS-05 | Time on task (detik) dan Skor SUS (skala 0-100). |
+| Sistem | WS-06 | Artefak berupa Prototipe interaktif Figma (Modul Cart & Payment) dan alat rekam pengujian. |
+| Desain Eksperimen | WS-07 | Controlled Comparison Study dengan metode Counterbalancing pada 20-30 responden pelanggan kedai. |
 
 ---
 
@@ -125,18 +125,18 @@ Verifikasi 6 koneksi kritis. Isi dengan merujuk tabel di Latihan 1.
 
 | Koneksi | Status | Bukti |
 |---------|--------|-------|
-| Problem → Gap | *Contoh: ✅ — gap muncul dari 15 paper Bab 3 yang tidak ada yang mengkombinasikan CF + context untuk satisfaction* | |
-| Gap → RQ | *Contoh: ✅ — RQ langsung menanyakan apakah CF+context meningkatkan satisfaction* | |
-| RQ → Hypothesis | *Contoh: ✅ — H₁ memprediksi satisfaction ≥ 70 dengan threshold RMSE ≤ 0.90* | |
-| Hypothesis → Metric | | |
-| Metric → System | | |
-| System → Experiment | | |
+| Problem → Gap | ✅ | Gap memfokuskan masalah antrean umum ke area spesifik, yaitu kemudahan alur transaksi digital. |
+| Gap → RQ | ✅ | RQ langsung menguji solusi pengisian celah tersebut dengan membandingkannya terhadap baseline. |
+| RQ → Hypothesis | ✅ | Hipotesis H₁ memprediksi arah performa kedua metrik utama secara tegas dan terukur. |
+| Hypothesis → Metric | ✅ | Variabel abstrak (efisiensi & kepuasan) langsung diturunkan ke metrik konkret (detik & poin SUS). |
+| Metric → System | ✅ | Modul prototipe Figma dirancang agar bisa memicu pencatatan waktu dan pengisian kuesioner. |
+| System → Experiment | ✅ | Desain eksperimen menggunakan prototipe tersebut sebagai objek uji utama ke pengguna. |
 
-**Koneksi mana yang paling lemah?** _______________________
+**Koneksi mana yang paling lemah?** Metric
 **Bagaimana cara memperkuatnya?**
-> ___________________________________________________
+> Menggunakan metode Screen Recording saat pengujian untuk meminimalkan human error atau delay milidetik saat mencatat waktu secara manual
 
-**Konsistensi horizontal — apakah istilah dan scope konsisten?** [ ] Ya / [ ] Tidak
+**Konsistensi horizontal — apakah istilah dan scope konsisten?** [x] Ya / [ ] Tidak
 > Jika tidak, di bagian mana terjadi inkonsistensi? _________
 
 ---
@@ -147,14 +147,14 @@ Evaluasi proposal mini menggunakan rubrik.
 
 | Kriteria | Skor (1-3) | Justifikasi |
 |----------|-----------|-------------|
-| Koherensi | *Contoh: 2 — koneksi gap→RQ masih lemah karena gap belum cukup narrow* | |
-| Specificity | *Contoh: 3 — metrik (satisfaction 0-100, RMSE) sudah terdefinisi numerik* | |
-| Feasibility | | |
-| Rigor | | |
+| Koherensi |3|Alur dari penemuan masalah di kedai hingga metode eksperimennya tersambung logis tanpa lompatan |
+| Specificity | 3|Metrik evaluasi (detik, skor SUS) dan nama baseline (Kopi Reman) sudah tertulis jelas dan numerik. |
+| Feasibility |3 |Riset berbasis prototipe Figma sangat realistis diselesaikan tepat waktu tanpa kendala coding backend. |
+| Rigor |2 |Perlu komitmen kuat dan waktu ekstra untuk memitigasi threat saat mencari responden pelanggan asli di lapangan. |
 
-**Skor total:** _____ / 12
+**Skor total:** 11 / 12
 
-**Apakah proposal siap untuk fase eksekusi?** [ ] Ya / [ ] Belum
+**Apakah proposal siap untuk fase eksekusi?** [x] Ya / [ ] Belum
 > Jika belum, apa yang perlu diperbaiki? __________________
 
 ---
@@ -163,8 +163,7 @@ Evaluasi proposal mini menggunakan rubrik.
 
 > Dari seluruh proses WS-01 sampai WS-08, bagian mana yang paling mudah dan paling sulit? Mengapa? Apa yang akan dilakukan berbeda jika mengulang dari awal?
 
-**Bagian termudah:** ____________________________________
-**Bagian tersulit:** ____________________________________
+**Bagian termudah:**Menentukan metrik evaluasi (Time on Task dan SUS) karena standarnya sudah baku dan sangat jelas untuk pengujian UI/UX
+**Bagian tersulit:** Menemukan paper baseline (Kopi Reman) yang pas dan menyusun Boolean search query yang benar-benar menyaring jurnal relevan di awal
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
-> ___________________________________________________
+> Memetakan dan mengumpulkan jurnal referensi bertema sejenis jauh-jauh hari agar memiliki lebih banyak pilihan baseline alternatif yang matang.
