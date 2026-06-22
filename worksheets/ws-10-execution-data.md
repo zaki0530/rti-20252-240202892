@@ -96,15 +96,15 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *1* | *Contoh: BERT-base, DS-1* | *42* | *lr=2e-5, epoch=10* | *Planned* |
-| *2* | *BERT-base, DS-1* | *123* | *lr=2e-5, epoch=10* | *Planned* |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
-
-**Total skenario:** ____
-**Run per skenario:** ____
-**Total run keseluruhan:** ____
+| 1 | Skenario 1 | Nomor Acak 1 | Perangkat, Instruksi, Lingkungan | Responden 1 |
+| 2 | Skenario 2 | Nomor Acak 2| Perangkat, Instruksi, Lingkungan | Responden 2 |
+| 3 |Skenario 1 |Nomor Acak 3 |Perangkat, Instruksi, Lingkungan |Responden 3 |
+| 4 |Skenario 2 |Nomor Acak 4 |Perangkat, Instruksi, Lingkungan |Responden 4 |
+| 5 |Skenario 1 |Nomor Acak 5 |Perangkat, Instruksi, Lingkungan |Responden 5 |
+|...|(dirotasi terus berselang-seling)|(Nomor acak selanjutnya)|(Sampai 25 responden)|
+**Total skenario:**2 Skenario Urutan (A→B dan B→A).
+**Run per skenario:** 13 Responden (A→B) dan 12 Responden (B→A).
+**Total run keseluruhan:** 25 Sesi Observasi Responden (Menghasilkan 50 pasang data).
 
 ---
 
@@ -115,25 +115,25 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Identitas:**
 | Field | Contoh |
 |-------|--------|
-| Run ID | *run-001* |
-| Timestamp | *2025-03-15T10:30:00* |
-| | |
+| Log_ID| 1 |
+| Timestamp_Test| 2026-06-12 10:30:00 |
+|Kondisi_Antarmuka|A (Baseline Kopi Reman) |
 
-**Konfigurasi:**
+**Hasil (Metrics):**
+|Metrik|	Tipe Data|	Range Valid|
+|Time_on_Task_Sec|	Float (Ratio)|	> 0 detik (Hasil ekstraksi dari screen recording)|
+|SUS_Q1_Q10_Raw|	Array of Int|	1 sampai 5 (Skala Likert per pertanyaan)|
+|SUS_Total_Score|	Float (Interval)|	0.0 – 100.0 (Hasil konversi bobot)|
+
+**Metadata & Observasi:**
 | Field | Contoh |
 |-------|--------|
-| Seed | *42* |
-| Code version | *commit abc1234* |
+| Task_Status |Success / Failed / Abandoned|
+| Catatan_Perilaku | Responden sempat kebingungan mencari tombol edit keranjang selama 4 detik. |
 | | |
 
-**Hasil:**
-| Metrik | Tipe Data | Range Valid |
-|--------|----------|-------------|
-| *Contoh: Accuracy* | *float* | *0.0 – 1.0* |
-| | | |
-| | | |
 
-**Format output:** [ ] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [x] CSV (Disimpan sebagai raw_data_sruput_eval.csv) / [ ] JSON / [ ] Database / [ ] Lainnya: ____
 
 ---
 
@@ -143,12 +143,12 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | *Contoh: OOM pada batch_size=64* | *Contoh: Dokumentasi, re-run batch_size=32, catat perubahan* |
-| Hasil ekstrem | | |
-| Waktu eksekusi anomali | | |
-| Inkonsistensi dengan run lain | | |
+|Data hilang/Crash | Perekam layar (screen recorder) mati di tengah sesi atau file video corrupt | Sesi dibatalkan. Responden tersebut dianggap gagal (DNF), data dibuang, dan mencari 1 responden pengganti baru. |
+| Task Abandonment|Responden menyerah (tidak bisa menyelesaikan pesanan) pada salah satu aplikasi setelah 5 menit. |Catat durasi maksimal (5 menit), nilai SUS tetap diambil, dan ditandai sebagai task failed untuk analisis lanjutan. |
+|Interupsi Eksternal |Ada panggilan telepon masuk atau responden diajak mengobrol orang lain di tengah pengerjaan. |Jika interupsi > 5 detik, durasi waktu akan dipotong secara manual (video editing) di bagian interupsi sebelum dihitung metriknya. |
+| Hasil Ekstrem (Outlier) |Responden menyelesaikan pesanan dalam 2 detik (terindikasi tidak membaca tugas asal klik). |Investigasi rekaman layar. Jika terbukti asal klik, data dibuang (ditandai sebagai invalid log) dan cari responden pengganti. |
 
-**Prinsip:** Detect → Investigate → Document → Decide
+**Prinsip:** Segala intervensi/pembuangan data harus dicatat alasannya secara transparan di log!
 
 ---
 
@@ -157,6 +157,7 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 > Pernahkah Anda melaporkan hasil riset/tugas dari single run? Apa risikonya? Bagaimana multiple run mengubah kepercayaan terhadap hasil?
 
 **Pengalaman sebelumnya:**
-> ___________________________________________________
+> Dulu saat menguji UI tugas kuliah, saya hanya meminta satu atau dua teman mencoba aplikasi, lalu langsung menyimpulkan "aplikasi ini cepat dan mudah digunakan" hanya karena mereka tidak menemui error.
+Risikonya: Hasilnya sangat bias (subjektif). Jika aplikasi dicoba oleh orang tua atau pelanggan awam, mereka bisa jadi kesulitan, sehingga kesimpulan saya patah saat diimplementasi di lapangan.
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+>Pada riset UTS ini, saya mewajibkan minimal 25 responden dari kalangan umum (multiple runs). Ini akan memberikan distribusi durasi yang masuk akal dan nilai statistik rata-rata yang bisa dipertanggungjawabkan (menghapus faktor kebetulan). Uji beda (T-Test) juga memastikan bahwa kecepatan SRUPUT benar-benar terjadi karena desainnya, bukan karena kebetulan respondennya sedang cepat mengetik
