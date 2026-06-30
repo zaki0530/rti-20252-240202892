@@ -8,9 +8,7 @@
 
 ### Data Trust Model
 
-```
-Raw Data → Data Cleaning → Consistency Check → Validation Process → Trusted Data
-```
+`Raw Data → Data Cleaning → Consistency Check → Validation Process → Trusted Data`
 
 Data mentah belum bisa dipercaya. Harus melewati pipeline validasi sebelum siap untuk analisis statistik.
 
@@ -18,80 +16,52 @@ Data mentah belum bisa dipercaya. Harus melewati pipeline validasi sebelum siap 
 
 | Pilar | Deskripsi | Contoh Pelanggaran |
 |-------|----------|-------------------|
-| **Accuracy** | Nilai dalam range masuk akal | Akurasi = 1.5 (di luar [0,1]) |
-| **Consistency** | Format seragam di semua run | Run 1: CSV, Run 2: JSON |
-| **Completeness** | Tidak ada data hilang dari plan | 97 dari 100 run tercatat |
-| **Validity** | Data sesuai desain eksperimen | Parameter baseline tercampur treatment |
+| **Accuracy** | Nilai dalam range masuk akal | Skor SUS = 110 (di luar batas maksimal 100) |
+| **Consistency** | Format seragam di semua run | Responden 1: detik, Responden 2: menit |
+| **Completeness** | Tidak ada data hilang dari plan | 24 dari 25 responden mengisi kuesioner |
+| **Validity** | Data sesuai desain eksperimen | Data uji Kopi Reman tercampur di data SRUPUT |
 
 ### Proses Validasi Progresif
 
-1. **Format validation** — Tipe file, header, kolom
-2. **Range validation** — Nilai dalam batas logis
-3. **Consistency validation** — Format seragam antar-run
-4. **Logic validation** — Data cocok dengan desain eksperimen
+1. **Format validation** — Tipe file CSV, header sesuai, kolom *Time on Task* dan *SUS*
+2. **Range validation** — Waktu pengerjaan > 0 detik, Skor SUS 0 - 100
+3. **Consistency validation** — Format waktu konsisten menggunakan hitungan detik
+4. **Logic validation** — Responden benar-benar masuk dalam kriteria *purposive sampling*
 
 Jika gagal di langkah awal → tidak perlu lanjut.
-
-### Anomaly Detection — 3 Jenis
-
-| Jenis | Deskripsi | Deteksi |
-|-------|----------|---------|
-| **Statistical outlier** | Nilai di luar distribusi normal | IQR: < Q1-1.5×IQR atau > Q3+1.5×IQR |
-| **Contextual anomaly** | Normal absolut, abnormal dalam konteks | Run 1-10: ~91%, Run 11-20: ~88% |
-| **Pattern anomaly** | Pola sistematis (bukan random) | Performa menurun berurutan |
-
-**Prinsip:** Detect → Investigate → Document → Decide — **JANGAN langsung hapus.**
-
-### Engineering vs Research Validation
-
-| Aspek | Engineering | Research |
-|-------|-----------|---------|
-| Tujuan | Data sesuai spesifikasi bisnis | Data layak untuk analisis statistik |
-| Missing data | Impute / set default | Investigasi penyebab → dokumentasi |
-| Outlier | Bug → fix | Mungkin temuan → investigasi |
-| Dokumentasi | Minimal (log error) | Komprehensif (anomali + keputusan) |
-
-### Jebakan Kognitif
-
-1. "Logging otomatis ≠ data benar" → bisa ada bug di logger
-2. "Outlier = hapus" → bisa jadi temuan penting
-3. "Dataset kecil tidak perlu validasi" → justru lebih rentan
-4. "Mean normal = data benar" → [94, 95, 93, **44**, 94] → mean 84% terlihat wajar
 
 ---
 
 ## Template A.11 — Data Validation Checklist
 
-```
+```text
 DATA VALIDATION CHECKLIST
 
 Completeness:
-  [ ] Semua skenario tercakup
-  [ ] Jumlah run sesuai rencana
-  [ ] Tidak ada file output hilang
-  Missing: ____ dari ____ data points
+  [x] Semua skenario tercakup (Skenario A & B)
+  [x] Jumlah run sesuai rencana (25 Responden × 2 Skenario = 50 run)
+  [x] Tidak ada file output hilang
+  Missing: 0 dari 50 data points
 
 Format Consistency:
-  [ ] Semua file format sama (CSV/JSON/...)
-  [ ] Header konsisten
-  [ ] Tipe data konsisten (numerik tetap numerik)
+  [x] Semua file format sama (.csv hasil export Google Form/Figma Log)
+  [x] Header konsisten
+  [x] Tipe data konsisten (waktu direkam dalam detik (integer))
 
 Range & Logic:
-  [ ] Nilai dalam range masuk akal
-  [ ] Tidak ada waktu negatif
-  [ ] Metrik 0–100%, tidak di luar range
-  Anomali ditemukan: ____________________
+  [x] Nilai dalam range masuk akal
+  [x] Tidak ada waktu negatif
+  [x] Metrik Skor SUS 0–100, tidak di luar range
+  Anomali ditemukan: 1 data waktu penyelesaian jauh lebih lama dari rata-rata (Responden 4)
 
 Cross-Validation:
-  [ ] Run identik → hasil mendekati
-  [ ] Trend konsisten dengan ekspektasi teori
+  [x] Run identik → hasil mendekati
+  [x] Trend konsisten dengan ekspektasi teori (Aplikasi SRUPUT lebih cepat dari baseline)
 
 Keputusan:
-  [ ] Data siap analisis
+  [x] Data siap analisis (setelah pembersihan anomali)
   [ ] Perlu cleaning
-  [ ] Perlu re-run (skenario: ____)
-```
-
+  [ ] Perlu re-run
 ---
 
 ## Latihan 1 — Completeness Check
@@ -100,15 +70,14 @@ Verifikasi apakah semua data yang direncanakan sudah terkumpul.
 
 | Skenario | Run Direncanakan | Run Tercatat | Missing | Alasan |
 |----------|-----------------|-------------|---------|--------|
-| *Contoh: BERT, DS-1* | *10* | *10* | *0* | *—* |
-| *LSTM, DS-3* | *10* | *8* | *2* | *OOM pada run 7 & 9* |
-| | | | | |
-| | | | | |
+| Eksperimen Skenario A (Kopi Reman) | 25 | 25 | 0 | Dilakukan pendampingan langsung secara offline sehingga semua sesi terekam penuh |
+| Eksperimen Skenario B (SRUPUT) | 25 | 25 | 0 |Semua log interaksi terekam otomatis secara akurat melalui fitur prototype Figma  |
+|Kuesioner SUS |25 |25 |0 |Responden diwajibkan melakukan submit Google Form sebelum mengakhiri sesi tes |
 
-**Total expected:** ____ | **Total actual:** ____ | **Missing:** ____
 
-**Keputusan untuk data missing:**
-> ___________________________________________________
+Total expected:75 data points | Total actual: 75 | Missing: 0
+Keputusan untuk data missing:**
+> Tidak ada data yang missing. Seluruh 25 responden berhasil menyelesaikan tes dan mengisi kuesioner karena metode pengujian dilakukan secara terawasi langsung (Moderated Usability Testing)
 
 ---
 
@@ -120,42 +89,42 @@ Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
 | Run | Accuracy (%) |
 |-----|-------------|
-| 1 | *91.2* |
-| 2 | *90.8* |
-| 3 | *91.5* |
-| 4 | *78.3* |
-| 5 | *91.0* |
-
+| 1 | 45 |
+| 2 | 48 |
+| 3 | 42 |
+| 4 | 125 |
+| 5 | 46 |
+| 14|12|
+|21 |89|
 **Deteksi outlier:**
-- Q1 = ____ | Q3 = ____ | IQR = ____
-- Batas bawah (Q1 - 1.5×IQR) = ____
-- Batas atas (Q3 + 1.5×IQR) = ____
-- Outlier terdeteksi: ____
+- Q1 = 43.5 | Q3 = 48.0 | IQR = 4.5
+- Batas bawah (Q1 - 1.5×IQR) = 36.75
+- Batas atas (Q3 + 1.5×IQR) = 54.75
+- Outlier terdeteksi: Responden 4 (125 detik)
 
 **Investigasi (untuk setiap outlier):**
 
 | Outlier | Nilai | Kemungkinan Penyebab | Keputusan |
 |---------|-------|---------------------|-----------|
-| *Run 4* | *78.3* | *Contoh: thermal throttling setelah 3 run berturut* | *Re-run dengan cooling interval* |
-
+| Run 4 | 125 | Responden menerima panggilan telepon saat mengerjakan task / distraksi lingkungan luar. | Eksklusi (hapus) data Time on Task Responden 4 dari analisis statistik agar tidak merusak mean/rata-rata, karena bukan kesalahan desain antarmuka |
+| Run 14 | 12 |Responden melakukan speed-clicking (asal pencet) tanpa membaca instruksi Task Scenario|Eksklusi total data Responden 14 karena perilaku pengujian dianggap tidak valid |
+| Run 21|89 |Responden kebingungan mencari ikon keranjang karena area klik (hitbox) terlalu kecil di layar HP-nya|Data dipertahankan. Catat sebagai temuan usability issue untuk perbaikan desain prototipe|
 ---
 
 ## Latihan 3 — Validation Report
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** ____% data terkumpul
-**2. Format:** [ ] Konsisten / [ ] Ada inkonsistensi: ____
-**3. Range check (anomali):** ____
-**4. Logic check:** [ ] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
+1. Completeness: 100% data terkumpul (25 Responden).
+2. Format: [x] Konsisten / [ ] Ada inkonsistensi: -
+3. Range check (anomali): 1 Anomali kontekstual ditemukan pada data Time on Task.
+4. Logic check: [x] Parameter sesuai plan / [ ] Ada ketidaksesuaian
 
-**Kesimpulan:** [ ] Data siap analisis / [ ] Perlu tindakan: ____
-
+**Kesimpulan:[x] Data siap analisis / [ ] Perlu tindakan: Eksklusi 1 data outlier dari perhitungan Time on Task.
 ---
 
 ## Refleksi
 
 > Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
 
-> ___________________________________________________
-> ___________________________________________________
+> Data yang benar" adalah angka aktual yang terekam oleh sistem atau alat ukur (misalnya, stopwatch mencatat 125 detik). Sedangkan "data yang dipercaya" adalah data yang valid secara konteks dan bebas dari variabel pengganggu (noise). Proses validasi formal tetap wajib dilakukan untuk menyaring anomali kontekstual; misalnya, waktu terekam lama bukan karena UI/UX-nya buruk, melainkan karena responden terdistraksi (seperti pada contoh Responden 4). Tanpa validasi, data yang "benar" secara angka bisa menyesatkan kesimpulan penelitian.
