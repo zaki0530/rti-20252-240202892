@@ -8,11 +8,9 @@
 
 ### Data → Insight Model
 
-```
-Validated Data → Structured Presentation → Visualization → Pattern Recognition → Insight
-```
+`Validated Data → Structured Presentation → Visualization → Pattern Recognition → Insight`
 
-Penyajian **mendahului** analisis. Tabel dan grafik membantu peneliti "melihat" data sebelum menghitung. Langsung ke uji statistik tanpa visualisasi berisiko kesimpulan yang secara teknis benar tapi kontekstual salah (Anscombe's Quartet, 1973).
+Penyajian **mendahului** analisis. Tabel dan grafik membantu peneliti "melihat" data sebelum menghitung. Langsung ke uji statistik tanpa visualisasi berisiko menghasilkan kesimpulan yang secara teknis benar tapi kontekstual salah (Anscombe's Quartet, 1973).
 
 ### Tabel = Presisi, Grafik = Pola
 
@@ -29,16 +27,16 @@ Keduanya **saling melengkapi**:
 | Tren temporal | Line chart |
 | Korelasi dua variabel | Scatter plot |
 | Proporsi (total = 100%) | Pie chart (hati-hati!) |
+*(Referensi tabel:[cite: 2])*
 
 ### Contoh Tabel Hasil yang Baik
 
-| Model | Accuracy (%) | F1-Score (%) | Training Time (min) |
+| Model (Aplikasi) | Time on Task (Detik) | Skor SUS (0-100) | Jumlah Kesalahan Klik |
 |-------|-------------|-------------|---------------------|
-| BERT | 88.4 ± 1.2 | 87.1 ± 1.4 | 45.2 ± 3.1 |
-| LSTM | 86.1 ± 1.8 | 84.5 ± 2.0 | 12.8 ± 1.2 |
-| SVM | 82.3 ± 0.9 | 80.7 ± 1.1 | 0.3 ± 0.1 |
+| SRUPUT (Prototipe) | 45.2 ± 5.1 | 85.5 ± 4.2 | 1.2 ± 0.5 |
+| Kopi Reman (Baseline) | 68.4 ± 8.2 | 62.1 ± 7.4 | 4.1 ± 1.2 |
 
-*N=10 per model. Mean ± std. Diurutkan berdasarkan Accuracy.*
+*N=23 responden valid per model (setelah pembersihan data). Mean ± std. Diurutkan berdasarkan efisiensi waktu.*
 
 ### Visualization Bias — Yang Harus Dihindari
 
@@ -49,6 +47,7 @@ Keduanya **saling melengkapi**:
 | Cherry-picked data | Hanya tampilkan yang "menang" | Selektif, tidak jujur |
 | 3D effects | Efek 3D tanpa dimensi data ke-3 | Distorsi tanpa informasi |
 | Missing error bar | Tidak ada variabilitas | Menyembunyikan ketidakpastian |
+*(Referensi tabel:[cite: 2])*
 
 ### Engineering vs Research Presentation
 
@@ -57,34 +56,35 @@ Keduanya **saling melengkapi**:
 | Tujuan grafik | Dashboard monitoring | Mendukung argumen ilmiah |
 | Informasi wajib | KPI, threshold | Mean, std, CI, N, p-value |
 | Bias handling | Less critical | Wajib dihindari (peer-review) |
+*(Referensi tabel:[cite: 2])*
 
 ---
 
 ## Template A.12 — Result Presentation Plan
 
-```
+```text
 RESULT PRESENTATION PLAN
 
-Research Question : ____________________
-Metrik Utama      : ____________________
+Research Question : Apakah desain prototipe SRUPUT meningkatkan efisiensi waktu pemesanan dan kepuasan pengguna dibandingkan aplikasi baseline Kopi Reman?
+Metrik Utama      : Time on Task (Detik) dan Skor System Usability Scale (SUS)
 
 Tabel Hasil:
-| Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
+| Skenario | Time on Task (mean ± std) | Skor SUS (mean ± std) | n |
 |----------|----------------------|----------------------|---|
-|          |                      |                      |   |
+| Baseline (Kopi Reman) | 68.4 ± 8.2 | 62.1 ± 7.4 | 23 |
+| Treatment (SRUPUT)  | 45.2 ± 5.1 | 85.5 ± 4.2 | 23 |
 
 Visualisasi yang Direncanakan:
 | # | Jenis Grafik | Pesan Utama | Metrik |
 |---|-------------|-------------|--------|
-| 1 |             |             |        |
-| 2 |             |             |        |
+| 1 | Bar Chart + Error Bar | Membandingkan rata-rata waktu pengerjaan tugas | Mean Time on Task |
+| 2 | Box Plot | Menampilkan distribusi sebaran Skor SUS antar responden | Skor SUS individual |
 
 Bias Check:
-  [ ] Y-axis mulai dari 0 (atau dijustifikasi)
-  [ ] Error bar/CI ditampilkan
-  [ ] Semua data disertakan (tidak cherry-picked)
-  [ ] Tidak menggunakan 3D tanpa alasan
-```
+  [x] Y-axis mulai dari 0 (atau dijustifikasi)
+  [x] Error bar/CI ditampilkan
+  [x] Semua data disertakan (tidak cherry-picked)
+  [x] Tidak menggunakan 3D tanpa alasan
 
 ---
 
@@ -94,15 +94,15 @@ Buat tabel hasil eksperimen Anda (boleh dengan data simulasi jika belum punya da
 
 | Skenario | Metrik 1 (mean ± std) | Metrik 2 (mean ± std) | n |
 |----------|----------------------|----------------------|---|
-| *Contoh: BERT-base* | *88.4 ± 1.2%* | *45.2 ± 3.1 min* | *10* |
-| | | | |
+| Skenario A Kopi Reman  | 68.4 ± 8.2 detik | 62.1 ± 7.4 poin | 23 |
+|Skenario B kopi sruput |45.2 ± 5.1 detik |85.5 ± 4.2 poin |23 |
 | | | | |
 
 **Checklist tabel:**
-- [ ] Self-contained (judul jelas, satuan ada, N tercantum)
-- [ ] Mean ± std (bukan single number)
-- [ ] Diurutkan berdasarkan metrik utama
-- [ ] Format konsisten di semua baris
+- [x] Self-contained (judul jelas, satuan ada, N tercantum)
+- [x] Mean ± std (bukan single number)
+- [x] Diurutkan berdasarkan metrik utama
+- [x] Format konsisten di semua baris
 
 ---
 
@@ -112,9 +112,9 @@ Rencanakan 2-3 grafik untuk menyajikan data dari Latihan 1. Setiap grafik = satu
 
 | # | Jenis Grafik | Pesan | Data yang Digunakan |
 |---|-------------|-------|---------------------|
-| 1 | *Contoh: Bar chart + error bar* | *Perbandingan accuracy antar 3 model* | *Mean accuracy ± std* |
-| 2 | *Box plot* | *Distribusi F1 per model* | *Semua run F1* |
-| 3 | *Scatter plot* | *Trade-off accuracy vs training time* | *Mean accuracy vs mean time* |
+| 1 | Bar chart + error bar | SRUPUT mempercepat waktu penyelesaian task dibanding Kopi Reman | Mean Time on Task ± std |
+| 2 | Box plot | Mayoritas responden memberikan rating kepuasan yang lebih seragam dan tinggi untuk SRUPUT | Semua data raw Skor SUS |
+| 3 | Scatter plot | Menunjukkan korelasi: semakin cepat waktu task, umumnya semakin tinggi skor SUS | Time on Task vs Skor SUS per responden |
 
 ---
 
@@ -126,13 +126,13 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Apakah Y-axis menyesatkan? | *Contoh: Ya — A terlihat 2× B padahal beda 0.4%* |
-| Apakah error bar ditampilkan? | |
-| Apakah semua kondisi ditampilkan? | |
-| Apa solusinya? | |
+| Apakah Y-axis menyesatkan? | Ya. Karena grafik tidak dimulai dari 0 (Truncated axis), perbedaan 0.4% akan terlihat seperti Metode A dua kali lipat lebih besar dari Metode B, ini manipulatif secara visual. |
+| Apakah error bar ditampilkan? |Tidak. Tidak ada indikasi standar deviasi atau rentang error |
+| Apakah semua kondisi ditampilkan? |(Asumsi ya, hanya A dan B). |
+| Apa solusinya? |Mulai sumbu Y (Y-axis) dari 0 hingga 100%, dan tambahkan garis error bar untuk menunjukkan variabilitas data. |
 
 **Evaluasi grafik Anda sendiri dari Latihan 2:**
-- [ ] Semua bias check lulus
+- [x] Semua bias check lulus
 - [ ] Ada yang perlu diperbaiki: ____
 
 ---
@@ -141,5 +141,4 @@ Evaluasi visualisasi berikut untuk bias (skenario dari contoh):
 
 > Mengapa tabel dan grafik keduanya diperlukan — tidak cukup salah satu saja? Pernahkah Anda membuat grafik yang (tanpa sengaja) menyesatkan?
 
-> ___________________________________________________
-> ___________________________________________________
+> Tabel sangat penting untuk memberikan nilai presisi yang absolut (misalnya pembaca ingin tahu persis berapa detiknya)[cite: 2]. Namun, manusia lebih mudah membaca pola melalui gambar (grafik)[cite: 2]. Grafik Box Plot, misalnya, bisa langsung menunjukkan seberapa banyak responden yang merasa kesulitan dengan Kopi Reman dibandingkan melihat deretan angka di tabel. Dulu saya pernah membuat grafik bar chart tanpa error bar, sehingga seolah-olah semua responden mencetak waktu yang persis sama, padahal kenyataannya kecepatan tiap orang sangat bervariasi.
