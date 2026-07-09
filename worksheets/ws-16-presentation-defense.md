@@ -121,17 +121,17 @@ Rencanakan presentasi 15 menit untuk riset Anda.
 
 | # | Pesan Utama | Visual yang Digunakan | Waktu |
 |---|-------------|----------------------|-------|
-| 1 | *Contoh: Judul + konteks — rekomendasi vs kepuasan* | *Title slide, gambar sistem* | *1 min* |
-| 2 | *Contoh: Problem — RMSE tinggi tapi satisfaction rendah (45/100)* | *Bar chart: satisfaction vs RMSE per sistem* | *2 min* |
-| 3 | *Contoh: Gap + RQ — belum ada CF+context untuk satisfaction* | *Tabel gap literatur* | *1.5 min* |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
+| 1 | Masalah antrian panjang di kedai kopi karena aplikasi pemesanan lambat | Foto antrian + screenshot aplikasi existing | 2 min |
+| 2 | Gap: belum ada evaluasi UI/UX aplikasi F&B secara komprehensif | Tabel gap literatur + positioning | 1.5 min |
+| 3 | RQ: Apakah prototipe SRUPUT lebih efisien dan usable dibanding Kopi Reman? | Screenshot kedua aplikasi side-by-side | 1 min |
+| 4 | Method: Within-subject design, 25 responden, time on task + SUS score | Diagram flow eksperimen | 2 min |
+| 5 | Hasil utama: SRUPUT lebih cepat dan lebih usable | Bar chart perbandingan kedua metrik | 2.5 min |
+| 6 | Statistical significance dan effect size | Tabel hasil uji statistik dengan p-value dan Cohen's d | 2 min |
+| 7 | Interpretasi: Trade-off speed vs complexity, boundary conditions | Scatter plot user experience vs task complexity | 2 min |
+| 8 | Limitation: Sample bias mahasiswa IT, lab setting | Bullet points limitation dengan impact assessment | 1.5 min |
+| 9 | Kontribusi: Framework evaluasi UI/UX + practical guidelines | Summary slide kontribusi teoretis dan praktis | 1.5 min |
 
-**Total waktu estimasi:** ____ menit
+**Total waktu estimasi:** 16 menit
 
 ---
 
@@ -141,11 +141,11 @@ Prediksi 5 pertanyaan yang mungkin diajukan penguji, lalu siapkan jawaban CER.
 
 | # | Kategori | Pertanyaan | Claim | Evidence | Reasoning |
 |---|----------|-----------|-------|----------|-----------|
-| 1 | *Problem* | *Contoh: Mengapa fokus kepuasan, bukan akurasi?* | *Akurasi tinggi tidak menjamin kepuasan* | *Survey: 45/100 satisfaction meski RMSE 0.87* | *Gap antara metrik teknis dan pengalaman pengguna* |
-| 2 | *Method* | *Contoh: Mengapa hanya 3 dataset?* | *3 dataset mewakili variasi: small-clean, medium-clean, medium-noisy* | *Tabel karakteristik dataset di Bab Method* | *Generalisasi perlu validasi lanjut — tercatat sebagai limitasi* |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | Problem | Mengapa fokus ke UI/UX, bukan fitur aplikasi? | UI/UX langsung berdampak pada waktu pemesanan dan kepuasan pengguna | Antrian >10 menit di jam sibuk, keluhan pengguna soal aplikasi lambat | Aplikasi cepat mengurangi antrian = revenue lebih tinggi untuk kedai |
+| 2 | Method | Mengapa hanya 25 responden? | Untuk paired t-test dengan power 0.8, minimal 23 responden untuk detect medium effect | Perhitungan power analysis di Method, effect size d=0.74 terdeteksi | Sample size adequate untuk within-subject design |
+| 3 | Results | Apakah perbedaan 7.5 detik bermakna praktis? | Ya, dalam konteks antrian panjang 7.5 detik per customer = penghematan signifikan | 50 customer/jam = hemat 6 menit/jam = 12 customer tambahan per hari | Practical significance tinggi untuk bisnis kedai kopi |
+| 4 | Generalization | Apakah hasil bisa digeneralisasi ke aplikasi F&B lain? | Prinsip UI/UX bisa, tapi perlu validasi untuk konteks berbeda | Responden hanya mahasiswa IT, setting lab bukan real-world | Listed sebagai limitation - future work perlu demografis lebih luas |
+| 5 | Method | Mengapa tidak ada control group? | Within-subject design lebih powerful dan mengurangi variabilitas individual | Setiap responden jadi control untuk dirinya sendiri, order effect diatasi dengan randomisasi | Design choice untuk maximize statistical power dengan sample terbatas |
 
 ---
 
@@ -154,15 +154,16 @@ Prediksi 5 pertanyaan yang mungkin diajukan penguji, lalu siapkan jawaban CER.
 Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan dan evaluasi jawaban Anda.
 
 | # | Pertanyaan | Jawaban Saya | Evaluasi |
-|---|-----------|-------------|---------|| *1* | *Contoh: "Mengapa tidak membandingkan dengan metode Y?"* | *Contoh: "Karena Y memerlukan dataset labeled yang tidak tersedia. Disebutkan sebagai limitasi di halaman X."* | *[✓] Direct [✓] Data-based [✓] Honest* || 1 | | | [ ] Direct [ ] Data-based [ ] Honest |
-| 2 | | | [ ] Direct [ ] Data-based [ ] Honest |
-| 3 | | | [ ] Direct [ ] Data-based [ ] Honest |
+|---|-----------|-------------|---------|
+| 1 | Bagaimana Anda memastikan responden tidak bias karena sudah tahu tujuan penelitian? | Responden hanya diberi instruksi tugas tanpa diberitahu hipotesis. Urutan aplikasi dirandomisasi untuk menghindari order effect. Dijelaskan di bagian prosedur Method. | [✓] Direct [✓] Data-based [✓] Honest |
+| 2 | Apakah 25 responden cukup untuk generalisasi? | Untuk within-subject design, 25 responden adequate untuk detect medium-to-large effect (power analysis). Namun generalisasi terbatas karena sample hanya mahasiswa IT - listed sebagai limitation. | [✓] Direct [✓] Data-based [✓] Honest |
+| 3 | Mengapa tidak menggunakan eye-tracking atau heatmap untuk evaluasi UI? | Eye-tracking memerlukan peralatan mahal dan analisis kompleks yang di luar scope studi ini. Time on task dan SUS sudah established metrics yang valid untuk usability evaluation. Future work bisa tambahkan eye-tracking. | [✓] Direct [✓] Data-based [✓] Honest |
 
 **Pertanyaan yang paling sulit dijawab:**
-> ___________________________________________________
+> Pertanyaan tentang generalisasi ke demografis yang lebih luas. Sulit dijawab karena memang limitation utama dari sample mahasiswa IT. Perlu acknowledge limitation secara jujur sambil menjelaskan trade-off feasibility vs representativeness.
 
 **Apa yang perlu disiapkan lebih baik:**
-> ___________________________________________________
+> Perlu data benchmark SUS dari aplikasi F&B lain untuk perbandingan konteks yang lebih kaya. Juga perlu siapkan justifikasi lebih detail tentang pemilihan within-subject design vs between-subject design.
 
 ---
 
@@ -171,7 +172,7 @@ Minta teman/kolega mengajukan 3 pertanyaan tentang riset Anda. Catat pertanyaan 
 > Dari seluruh proses WS-01 sampai WS-16 — dari paradigma riset hingga presentasi — bagian mana yang paling mengubah cara Anda berpikir tentang riset? Apa satu hal yang akan selalu Anda terapkan di riset berikutnya?
 
 **Insight terbesar:**
-> ___________________________________________________
+> Riset bukan hanya tentang menemukan jawaban yang "benar", tapi tentang memahami boundary conditions dan trade-offs dari setiap solusi. Failure analysis dan limitation bukan kelemahan, justru menunjukkan kedalaman pemahaman dan kejujuran ilmiah.
 
 **Yang akan selalu diterapkan:**
-> ___________________________________________________
+> Pre-registration metrik sebelum eksperimen dan always report effect size + confidence interval, bukan hanya p-value. Ini mencegah p-hacking dan memberikan gambaran lengkap tentang practical significance dari temuan.

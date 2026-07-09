@@ -116,13 +116,13 @@ Buat outline paper untuk riset Anda menggunakan struktur IMRAD.
 
 | Section | Konten Utama (2-3 kalimat) | Target Kata |
 |---------|---------------------------|------------|
-| Abstract | *Contoh: Sistem rekomendasi memiliki akurasi tinggi tapi satisfaction rendah. Studi ini menguji CF+context signal. Hasil: satisfaction naik 38% tanpa penurunan RMSE signifikan.* | 200-250 |
-| Introduction | *Contoh: Konteks: gap antara akurasi dan kepuasan pengguna. Gap: tidak ada studi yang mengkombinasikan CF+context. RQ: apakah CF+context meningkatkan satisfaction?* | 500-700 |
-| Related Work | | 700-1000 |
-| Method | | 800-1200 |
-| Results | | 500-800 |
-| Discussion | | 600-900 |
-| Conclusion | | 200-400 |
+| Abstract | Aplikasi pemesanan kopi memiliki masalah efisiensi dan usability. Studi ini membandingkan prototipe SRUPUT dengan baseline Kopi Reman menggunakan time on task dan SUS score. Hasil: SRUPUT 14% lebih cepat dengan skor usability 15% lebih tinggi. | 200-250 |
+| Introduction | Konteks: antrian panjang di kedai kopi karena aplikasi pemesanan lambat. Gap: belum ada studi yang mengevaluasi UI/UX pemesanan mandiri secara komprehensif. RQ: apakah desain prototipe SRUPUT meningkatkan efisiensi dan usability dibanding aplikasi existing? | 500-700 |
+| Related Work | Review studi UI/UX aplikasi F&B, time on task sebagai metrik efisiensi, dan SUS sebagai standar usability measurement. Gap positioning terhadap studi sebelumnya yang fokus fitur tanpa evaluasi user experience. | 700-1000 |
+| Method | Within-subject design, 25 responden, 2 skenario pemesanan (simple & complex), metrik time on task dan SUS score, prosedur randomized order, analisis paired t-test. | 800-1200 |
+| Results | Statistik deskriptif kedua aplikasi, hasil uji normalitas, paired t-test results dengan effect size, visualisasi perbandingan time on task dan SUS score. | 500-800 |
+| Discussion | Interpretasi superioritas SRUPUT, perbandingan dengan benchmark SUS industry, implikasi untuk desain aplikasi F&B, limitation (sample bias, generalisasi), boundary condition. | 600-900 |
+| Conclusion | SRUPUT terbukti superior dalam efisiensi dan usability. Kontribusi: framework evaluasi UI/UX aplikasi pemesanan. Future work: evaluasi di setting real-world dan demografis yang lebih luas. | 200-400 |
 
 ---
 
@@ -134,20 +134,26 @@ Buat consistency matrix untuk memverifikasi internal consistency paper Anda.
 |--|-------|--------|--------|-----------|-----------|
 | *Contoh: RQ1* | *✓* | *✓* | *✓* | *✓* | *✓* |
 | *Contoh: Metrik-X* | *✗ ←* | *✗ ←* | *✓* | *✗ ←* | *✗ ←* |
-| RQ1 | | | | | |
-| RQ2 | | | | | |
-| Metrik utama | | | | | |
-| Variabel IV | | | | | |
-| Variabel DV | | | | | |
-| Klaim/kontribusi | | | | | |
+|  | Intro | Method | Result | Discussion | Conclusion |
+|--|-------|--------|--------|-----------|-----------|
+| RQ: Efisiensi SRUPUT vs Kopi Reman | ✓ | ✓ | ✓ | ✓ | ✓ |
+| RQ: Usability SRUPUT vs Kopi Reman | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Metrik Time on Task | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Metrik SUS Score | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Variabel Jenis Aplikasi (IV) | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Within-subject design | ✗ | ✓ | ✗ | ✓ | ✗ |
+| Limitation sample bias | ✗ | ✗ | ✗ | ✓ | ✓ |
+| Klaim kontribusi framework | ✓ | ✗ | ✗ | ✓ | ✓ |
 
 **Isi setiap sel:** ✓ (ada & konsisten), ✗ (missing), ~ (ada tapi inkonsisten)
 
 **Inkonsistensi yang ditemukan:**
-> ___________________________________________________
+> Within-subject design tidak dijelaskan di Introduction, padahal penting untuk justifikasi mengapa paired comparison valid. Limitation hanya muncul di Discussion tapi tidak di-address di bagian lain. Klaim kontribusi framework tidak didukung detail metodologi.
 
 **Tindakan perbaikan:**
-> ___________________________________________________
+> 1. Tambahkan penjelasan within-subject design di Introduction sebagai bagian metodologi overview
+> 2. Sebutkan limitation di Method untuk transparensi, bukan hanya di Discussion  
+> 3. Pastikan klaim kontribusi framework sudah didukung evidence di Method dan Results
 
 ---
 
@@ -156,16 +162,16 @@ Buat consistency matrix untuk memverifikasi internal consistency paper Anda.
 Ambil satu paragraf dari tulisan Anda (atau tulis paragraf baru) dan evaluasi kualitasnya.
 
 **Paragraf asli:**
-> (tempel paragraf Anda di sini)
+> Penelitian ini menggunakan metode eksperimen untuk membandingkan performa aplikasi SRUPUT dengan aplikasi Kopi Reman. Variabel yang diukur adalah waktu penyelesaian tugas dan skor usability menggunakan instrumen SUS. Data dikumpulkan dari 25 responden yang menggunakan kedua aplikasi secara berurutan. Hasil menunjukkan bahwa SRUPUT memiliki performa yang lebih baik dalam kedua aspek tersebut.
 
 | Kriteria | Evaluasi | Perbaikan |
 |----------|---------|-----------|
-| Clarity | *Contoh: kalimat ke-3 ambigu — "performa" bisa berarti accuracy atau speed* | *Ubah menjadi: "accuracy meningkat..."* |
-| Precision | | |
-| Conciseness | | |
+| Clarity | Kalimat ke-4 ambigu — "performa yang lebih baik" tidak spesifik, bisa berarti apa saja | Ubah menjadi: "SRUPUT 14% lebih cepat dan mendapat skor SUS 15% lebih tinggi" |
+| Precision | "secara berurutan" tidak jelas — apakah random order atau fixed sequence? | Spesifikasi: "dalam urutan yang dirandomisasi untuk menghindari order effect" |
+| Conciseness | Kalimat pertama redundan dengan informasi di kalimat kedua | Gabungkan: "Eksperimen within-subject membandingkan time on task dan SUS score..." |
 
 **Paragraf setelah perbaikan:**
-> (tulis paragraf yang sudah diperbaiki)
+> Eksperimen within-subject membandingkan time on task dan SUS score antara aplikasi SRUPUT dan Kopi Reman. Sebanyak 25 responden menggunakan kedua aplikasi dalam urutan yang dirandomisasi untuk menghindari order effect. Hasil menunjukkan SRUPUT 14% lebih cepat (45.2 vs 52.7 detik) dan mendapat skor SUS 15% lebih tinggi (78.5 vs 68.3 poin).
 
 ---
 
@@ -173,5 +179,6 @@ Ambil satu paragraf dari tulisan Anda (atau tulis paragraf baru) dan evaluasi ku
 
 > Apa perbedaan antara menulis "tentang" riset dan menulis sebagai "argumen" riset? Bagaimana urutan penulisan (Method → Discussion → Introduction) mengubah kualitas tulisan?
 
-> ___________________________________________________
-> ___________________________________________________
+> Menulis "tentang" riset cenderung deskriptif dan kronologis, sedangkan menulis sebagai "argumen" riset membangun logical flow dari masalah ke solusi ke kontribusi. Setiap kalimat harus menopang argumen utama, bukan sekedar melaporkan aktivitas.
+> 
+> Urutan Method → Discussion → Introduction memastikan claims di Introduction selaras dengan temuan aktual. Ketika menulis Introduction terakhir, kita sudah tahu batasan dan kontribusi riil, sehingga framing menjadi lebih akurat dan tidak over-promise.

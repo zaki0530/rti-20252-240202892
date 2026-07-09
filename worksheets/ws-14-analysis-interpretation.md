@@ -116,13 +116,13 @@ Tentukan uji statistik yang tepat untuk eksperimen Anda.
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Berapa grup yang dibandingkan? | *Contoh: 3 (BERT, LSTM, SVM)* |
-| Apakah data berpasangan (paired)? | |
-| Apakah distribusi normal? (uji normalitas) | |
-| **Uji yang dipilih:** | |
-| **Justifikasi:** | |
+| Berapa grup yang dibandingkan? | 2 (Prototipe SRUPUT vs Aplikasi Kopi Reman) |
+| Apakah data berpasangan (paired)? | Ya - responden yang sama menggunakan kedua aplikasi dalam urutan random |
+| Apakah distribusi normal? (uji normalitas) | Perlu diuji dengan Shapiro-Wilk test pada data time on task (detik) dan SUS score (0-100) |
+| **Uji yang dipilih:** | **Jika normal:** Paired t-test untuk kedua metrik (time on task & SUS)<br>**Jika tidak normal:** Wilcoxon signed-rank test |
+| **Justifikasi:** | Data paired karena within-subject design mengurangi variabilitas individual. Pilihan uji parametrik/non-parametrik tergantung hasil uji normalitas |
 
-**Effect size yang akan dilaporkan:** [ ] Cohen's d / [ ] Eta-squared / [ ] Lainnya: ____
+**Effect size yang akan dilaporkan:** [x] Cohen's d / [ ] Eta-squared / [ ] Lainnya: ____
 
 ---
 
@@ -130,21 +130,22 @@ Tentukan uji statistik yang tepat untuk eksperimen Anda.
 
 Gunakan data berikut (atau data riil Anda) untuk berlatih interpretasi.
 
-**Data:**
-| Model | Accuracy (mean ± std) | n |
-|-------|----------------------|---|
-| A | 89.2 ± 1.5 | 10 |
-| B | 87.8 ± 2.1 | 10 |
+**Data Hipotetis SRUPUT Research:**
+| Aplikasi | Time on Task (mean ± std) | SUS Score (mean ± std) | n |
+|----------|---------------------------|------------------------|---|
+| SRUPUT | 45.2 ± 8.3 detik | 78.5 ± 12.1 | 25 |
+| Kopi Reman | 52.7 ± 9.1 detik | 68.3 ± 14.7 | 25 |
 
-p = 0.045, Cohen's d = 0.74, CI 95% = [0.03, 2.77]
+Time on Task: p = 0.003, Cohen's d = 0.89, CI 95% = [2.1, 12.9]
+SUS Score: p = 0.012, Cohen's d = 0.74, CI 95% = [2.3, 18.1]
 
 | Aspek | Interpretasi |
 |-------|-------------|
-| Signifikansi statistik | *Contoh: p < 0.05 → signifikan pada α=0.05* |
-| Effect size | *Contoh: d=0.74 → medium-to-large effect* |
-| Practical significance | |
-| Hubungan ke RQ | |
-| Perbandingan literatur | |
+| Signifikansi statistik | Time on Task: p < 0.01 → sangat signifikan pada α=0.05<br>SUS Score: p < 0.05 → signifikan pada α=0.05 |
+| Effect size | Time on Task: d=0.89 → large effect (>0.8)<br>SUS Score: d=0.74 → medium-to-large effect |
+| Practical significance | Penghematan 7.5 detik per pemesanan bermakna praktis untuk mengurangi antrian. Peningkatan 10.2 poin SUS menunjukkan perbaikan usability yang substansial |
+| Hubungan ke RQ | Kedua hipotesis terdukung: SRUPUT lebih cepat DAN lebih usable dibanding Kopi Reman |
+| Perbandingan literatur | SUS score 78.5 masuk kategori "Good" (Nielsen baseline), peningkatan dari 68.3 yang masuk kategori "OK" |
 
 ---
 
@@ -152,22 +153,22 @@ p = 0.045, Cohen's d = 0.74, CI 95% = [0.03, 2.77]
 
 Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipelajari?
 
-**Skenario:** Metode baru Anda mendapat F1 = 83.2%, baseline = 84.7%. p = 0.12 (tidak signifikan).
+**Skenario SRUPUT Failure Analysis:** Prototipe SRUPUT mendapat SUS score = 72.1, Kopi Reman = 74.3. p = 0.18 (tidak signifikan). Time on task tetap signifikan lebih cepat.
 
 | Pertanyaan | Jawaban |
 |-----------|---------|
-| Apakah ini "gagal"? | *Contoh: Bukan gagal total — hipotesis tidak terdukung adalah temuan yang valid dan bisa menjadi kontribusi.* |
-| Kemungkinan penyebab? | *Contoh: Metode baru menambah kompleksitas komputasi (+40% waktu) tanpa peningkatan F1 yang cukup — overhead tidak sebanding.* |
-| Boundary condition? | *Contoh: Metode ini hanya efektif ketika data ≥ 10.000 record; di dataset kecil (<1.000), baseline lebih stabil.* |
-| Insight yang bisa diambil? | *Contoh: Ada trade-off ukuran data vs kompleksitas — rekomendasikan hybrid approach yang adaptif berdasarkan ukuran dataset.* |
-| Apakah layak dilaporkan? Mengapa? | *Contoh: Ya — negative result + boundary condition analysis adalah kontribusi riset yang diakui komunitas (ex: ACL, SIGIR). Mencegah riset duplikasi yang berulang.* |
+| Apakah ini "gagal"? | Bukan gagal total — hipotesis parsial terdukung (time on task) tapi tidak untuk usability. Ini temuan valid yang berkontribusi pada pemahaman trade-off efficiency vs satisfaction. |
+| Kemungkinan penyebab? | SRUPUT lebih cepat karena shortcut UI, tapi mengorbankan intuitiveness. Users menyelesaikan tugas cepat tapi merasa kurang confident dengan proses yang "terlalu singkat". |
+| Boundary condition? | Efek kecepatan SRUPUT hanya bermakna untuk power users yang familiar dengan e-commerce. Untuk first-time users, kecepatan tinggi justru menciptakan anxiety dan menurunkan confidence. |
+| Insight yang bisa diambil? | Ada trade-off fundamental antara efficiency dan perceived usability. Rekomendasi: adaptive UI yang memberikan shortcut untuk experienced users dan guided flow untuk newcomers. |
+| Apakah layak dilaporkan? Mengapa? | Ya — negative result untuk usability + boundary condition analysis adalah kontribusi riset HCI yang diakui komunitas. Mencegah desainer lain jatuh pada "speed trap" yang sama. |
 
 **Limitation terkait:**
 | Jenis | Ancaman | Dampak |
 |-------|---------|--------|
-| *Contoh: Statistical* | *Contoh: Hanya 5 run per skenario* | *Power test rendah* |
-| | | |
-| | | |
+| External validity | Sample hanya mahasiswa IT | Generalisasi ke target market (umum) terbatas |
+| Construct validity | SUS mungkin tidak capture cognitive load | Missing insight tentang mental effort |
+| Statistical | Hanya 25 responden per grup | Power test rendah untuk mendeteksi small effect |
 
 ---
 
@@ -175,5 +176,6 @@ Latih kemampuan failure analysis: hipotesis TIDAK didukung. Apa yang bisa dipela
 
 > Apakah "failure" dalam riset benar-benar gagal, atau justru kontribusi? Bagaimana failure analysis mengubah cara Anda melihat hasil negatif?
 
-> ___________________________________________________
-> ___________________________________________________
+> Failure dalam riset bukan kegagalan sebenarnya, melainkan temuan berharga yang mencegah peneliti lain mengulang jalan buntu yang sama. Dalam konteks SRUPUT, jika UI yang terlalu cepat mengorbankan usability, ini insight penting untuk desain aplikasi yang seimbang.
+> 
+> Failure analysis mengubah mindset dari "mencari validasi hipotesis" menjadi "memahami boundary condition suatu solusi". Hasil negatif + analisis mendalam seringkali lebih berkontribusi daripada hasil positif tanpa refleksi.
