@@ -1,11 +1,10 @@
 # Laporan Penelitian Akhir
 ## Evaluasi Usability dan Efisiensi Prototipe SRUPUT
 
-**Peneliti**: [Nama Peneliti]  
-**NIM**: [NIM]  
+**Peneliti**: [Abu Zaki]  
+**NIM**: [240202892]  
 **Program Studi**: Teknik Informatika  
-**Pembimbing**: [Nama Pembimbing]  
-**Periode Penelitian**: Januari 2024 - April 2024
+**Pembimbing**: [Helmi Bahar Alim,S.Kom.,M.Kom]  
 
 ---
 
