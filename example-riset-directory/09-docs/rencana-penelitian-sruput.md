@@ -2,10 +2,9 @@
 
 **Judul**: Evaluasi Usability dan Efisiensi Prototipe Aplikasi Pemesanan Kopi SRUPUT: Studi Komparatif dengan Aplikasi Kopi Reman
 
-**Peneliti**: [Nama]  
-**Pembimbing**: [Nama Pembimbing]  
-**Institusi**: Program Studi Teknik Informatika  
-**Periode**: Januari - Juni 2024
+**Peneliti**: [Abu Zaki]  
+**Pembimbing**: [Helmi Bahar Alim,S.Kom.,M.Kom]  
+**Institusi**: Program Studi Teknik Informatika 
 
 ---
 
