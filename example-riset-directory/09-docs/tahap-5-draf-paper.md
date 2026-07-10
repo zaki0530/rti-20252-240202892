@@ -13,10 +13,10 @@ Menyusun draf naskah ilmiah dengan gaya bahasa akademis formal, objektif, dan pa
 
 | Bagian | File | Status |
 |---|---|---|
-| Naskah konsolidasi (template jurnal) | [../07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md), [../07-manuskrip/naskah-jurnal.docx](../07-manuskrip/naskah-jurnal.docx) | Selesai — gabungan §1–§5 + Daftar Pustaka |
+| Naskah konsolidasi (template jurnal) | [../07-manuskrip/naskah-jurnal.md](../07-manuskrip/naskah-jurnal.md), [../07-manuskrip/naskah-jurnal.docx](../07-manuskrip/naskah-jurnal.docx) | Selesai — gabungan 1–5 + Daftar Pustaka |
 | Abstrak | [../07-manuskrip/01-abstrak.md](../07-manuskrip/01-abstrak.md) | Draf selesai (ID & EN) |
 | Pendahuluan (latar belakang, rumusan masalah, tujuan, kontribusi) | [../07-manuskrip/02-pendahuluan.md](../07-manuskrip/02-pendahuluan.md) | Draf selesai |
-| Tinjauan Pustaka (JWT/JWKS, mitigasi, *related work*) | [../07-manuskrip/03-tinjauan-pustaka.md](../07-manuskrip/03-tinjauan-pustaka.md) | Selesai — §2.1–2.3 (RFC + CVE-2026-48524 terverifikasi) dan §2.4 *Related Work* (10 sitasi) |
+| Tinjauan Pustaka (JWT/JWKS, mitigasi, *related work*) | [../07-manuskrip/03-tinjauan-pustaka.md](../07-manuskrip/03-tinjauan-pustaka.md) | Selesai — 2.1–2.3 (RFC + CVE-2026-48524 terverifikasi) dan 2.4 *Related Work* (10 sitasi) |
 | Metodologi (arsitektur, skema, desain eksperimen, metrik) | [../07-manuskrip/04-metodologi.md](../07-manuskrip/04-metodologi.md) | Draf selesai |
 | Hasil & Analisis (statistik deskriptif, $D_{perf}$, reduksi query/CPU) | [../07-manuskrip/05-hasil-analisis.md](../07-manuskrip/05-hasil-analisis.md) | Draf selesai, mengacu ke [../06-output/](../06-output/) |
 | Kesimpulan & Saran Penelitian Lanjutan | [../07-manuskrip/06-kesimpulan.md](../07-manuskrip/06-kesimpulan.md) | Draf selesai |
