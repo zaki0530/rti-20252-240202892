@@ -1,12 +1,24 @@
 # 04-data
 
-Data mentah hasil pengujian — output dari **Tahap 3**, input untuk **Tahap 4**.
+Data mentah hasil pengujian usability — output dari eksperimen, input untuk analisis statistik.
 
 ## Isi yang diharapkan
 
-- Hasil pengujian k6 dalam format CSV/JSON, per kombinasi mode (`CACHE_MODE=none|hybrid`) × jenis traffic (legitimate/attack/mixed)
-- Metrik resource container (CPU, memori) PostgreSQL & Redis selama pengujian
-- Metadata eksekusi tiap run (timestamp, konfigurasi, durasi)
+- Hasil pengujian time on task dalam format CSV, per responden × aplikasi (SRUPUT/Kopi Reman) × skenario (simple/complex)
+- Hasil kuesioner SUS dalam format CSV, per responden × aplikasi
+- Metadata eksekusi tiap session (timestamp, urutan aplikasi, demografi responden)
+- Catatan observasi selama pengujian (errors, hesitations, comments)
+
+## Struktur Data
+
+```
+04-data/
+├── time_on_task.csv         # Waktu penyelesaian tugas
+├── sus_responses.csv         # Jawaban SUS per responden
+├── demographics.csv          # Data demografi responden
+├── task_success_rate.csv    # Success rate per skenario
+└── observation_notes.md      # Catatan kualitatif
+```
 
 ## Catatan
 

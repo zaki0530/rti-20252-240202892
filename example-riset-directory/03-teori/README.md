@@ -1,18 +1,19 @@
 # 03-teori
 
-Arsitektur, desain, dan landasan teori sistem — hasil **Tahap 1**.
+Landasan teori UI/UX dan framework evaluasi — hasil **analisis literatur**.
 
 ## Isi yang diharapkan
 
-- Diagram alur resolusi kunci (mitigasi JWKS flooding)
-- Skema database PostgreSQL (`signing_keys`, `rate_limit_counters`)
-- Skema Redis (positive/negative cache)
-- Diagram arsitektur komponen (Gateway, Redis, PostgreSQL)
+- Teori usability (Nielsen, SUS)
+- Teori cognitive load dan task completion time (Fitts's Law, Hick's Law)
+- Information architecture untuk mobile apps
+- Visual design principles
+- Framework evaluasi UI/UX (metrik objektif & subjektif)
 
 ## Berkas
 
-- [arsitektur-dan-skema.md](arsitektur-dan-skema.md) — diagram Mermaid (arsitektur komponen, alur resolusi kunci, fail-closed/fail-open, ERD database), skema Redis, dan pemetaan ke implementasi kode
+- [teori-ui-ux-sruput.md](teori-ui-ux-sruput.md) — landasan teori lengkap untuk penelitian SRUPUT, mencakup Nielsen's Usability Principles, SUS, Cognitive Load Theory, Fitts's Law, Hick's Law, dan framework evaluasi
 
 ## Acuan
 
-Detail teknis lengkap Tahap 1 (status: selesai): [../09-docs/tahap-1-arsitektur-dan-skema-database.md](../09-docs/tahap-1-arsitektur-dan-skema-database.md)
+Detail teori dan literatur terkait ada di: [../02-literatur/matrix-literatur.md](../02-literatur/matrix-literatur.md)
