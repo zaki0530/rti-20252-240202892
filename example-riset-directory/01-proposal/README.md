@@ -1,16 +1,16 @@
 # 01-proposal
 
-Dokumen proposal penelitian — versi draf maupun final.
+Dokumen proposal penelitian SRUPUT UI/UX — versi draf maupun final.
 
 ## Isi yang diharapkan
 
-- Proposal penelitian (latar belakang, rumusan masalah, tujuan, urgensi JWKS Endpoint Flooding)
-- Revisi proposal berdasarkan masukan pembimbing/reviewer
+- Proposal penelitian (latar belakang, rumusan masalah, tujuan, metodologi)
+- Revisi proposal berdasarkan masukan pembimbing
 
 ## Berkas
 
-- [proposal-penelitian.md](proposal-penelitian.md) — draf proposal (rekonstruksi retrospektif berdasarkan hasil Tahap 1-4)
+- [proposal-penelitian.md](proposal-penelitian.md) — proposal penelitian lengkap evaluasi usability SRUPUT vs Kopi Reman
 
 ## Acuan
 
-Ringkasan topik & roadmap penelitian: [../09-docs/rencana-penelitian.md](../09-docs/rencana-penelitian.md)
+Worksheet terkait: [../../worksheets/ws-02-problem-statement.md](../../worksheets/ws-02-problem-statement.md), [ws-03-literature-gap.md](../../worksheets/ws-03-literature-gap.md), [ws-04-rq-hypothesis.md](../../worksheets/ws-04-rq-hypothesis.md)

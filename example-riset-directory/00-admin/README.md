@@ -1,13 +1,15 @@
 # 00-admin
 
-Berkas administratif penelitian: jadwal bimbingan, korespondensi dengan pembimbing/editor jurnal, surat-menyurat, dan catatan administratif lainnya yang tidak masuk ke kategori ilmiah/teknis.
+Berkas administratif penelitian SRUPUT UI/UX: jadwal bimbingan, timeline, dan log penelitian.
 
 ## Isi yang diharapkan
 
-- Jadwal bimbingan & catatan rapat
-- Korespondensi (email, surat pengantar, dsb.)
-- Dokumen administratif lain (timeline, checklist submission jurnal)
+- Jadwal bimbingan & catatan rapat dengan pembimbing
+- Timeline penelitian
+- Checklist progress
+- Dokumen administratif lain (informed consent, ethical clearance)
 
 ## Berkas
 
-- [jadwal-dan-log-penelitian.md](jadwal-dan-log-penelitian.md) — log kronologis pelaksanaan Tahap 1-5 dan checklist tindak lanjut sebelum submission
+- [jadwal-dan-log-penelitian.md](jadwal-dan-log-penelitian.md) — log kronologis pelaksanaan penelitian dan checklist milestone
+- [timeline-penelitian.md](timeline-penelitian.md) — Gantt chart dan milestone penelitian
