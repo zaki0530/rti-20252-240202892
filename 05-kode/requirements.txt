@@ -1,0 +1,30 @@
+# Python Dependencies untuk Penelitian Context-Aware Collaborative Filtering
+# Sistem Rekomendasi Pariwisata Semarang
+
+# Core Data Science Libraries
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+
+# Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Geospatial Calculations
+geopy==2.3.0
+
+# Configuration Management
+pyyaml==6.0.1
+
+# Statistical Testing
+scipy==1.11.1
+
+# Progress Bar (optional, untuk monitoring eksperimen)
+tqdm==4.65.0
+
+# Jupyter Notebook (optional, untuk exploratory analysis)
+jupyter==1.0.0
+notebook==7.0.2
+
+# Unit Testing (optional)
+pytest==7.4.0

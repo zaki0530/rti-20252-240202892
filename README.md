@@ -104,9 +104,45 @@ git push
 rti-20252-<NIM>/
 ├── README.md
 ├── LICENSE
-└── worksheets/
-    ├── ws-01-distorsi-paradigma.md
-    ├── ws-02-problem-statement.md
-    ├── ...
-    └── ws-16-presentation-defense.md
+├── worksheets/               # Worksheet mingguan
+│   ├── ws-01-distorsi-paradigma.md
+│   ├── ws-02-problem-statement.md
+│   ├── ...
+│   └── ws-16-presentation-defense.md
+├── 00-admin/                 # Administrasi penelitian
+├── 01-proposal/              # Proposal penelitian
+├── 02-literatur/             # Tinjauan pustaka
+├── 03-teori/                 # Landasan teori
+├── 04-data/                  # Dataset
+├── 05-kode/                  # Source code
+├── 06-output/                # Hasil eksperimen
+├── 07-manuskrip/             # Manuskrip jurnal
+├── 08-laporan/               # Laporan penelitian
+└── 09-docs/                  # Dokumentasi tahapan
 ```
+
+---
+
+## Proyek Penelitian
+
+**Judul:** Peningkatan Akurasi Sistem Rekomendasi Pariwisata Semarang Menggunakan Algoritma Context-Aware Collaborative Filtering
+
+**Peneliti:** Kayla Putri Arsonisr (NIM: 240202837)
+
+### Ringkasan Hasil
+
+- **MAE Baseline CF:** 0.672
+- **MAE Context-Aware CF:** 0.651 (improvement 3.13%, p < 0.001)
+- **Penurunan jarak geografis:** 61% (dari 22.3 km → 8.7 km)
+- **Dataset:** 4.362 ulasan Google Maps Semarang
+- **Metode:** 5-Fold Stratified Cross Validation
+
+### Dokumentasi Lengkap
+
+Lihat folder-folder penelitian di atas untuk dokumentasi lengkap:
+- [Rencana Penelitian](09-docs/rencana-penelitian.md)
+- [Proposal](01-proposal/proposal-penelitian.md)
+- [Laporan Penelitian](08-laporan/README.md)
+- [Tahapan 1-5](09-docs/README.md)
+
+**Status:** Penelitian selesai, manuskrip telah disubmit ke Jurnal RESTI (Sinta 2) — Mei 2026
